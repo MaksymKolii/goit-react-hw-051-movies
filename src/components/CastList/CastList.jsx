@@ -6,6 +6,7 @@ import {
   CastListP,
   CastListSpan,
 } from 'components/CastList/CastList.styled';
+import { Loader } from 'components/Loader/Loader';
 
 export const CastList = ({ cast }) => {
   const genderSwitcher = data => {

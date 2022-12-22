@@ -11,13 +11,14 @@ export const Reviews = () => {
   const { movieId } = useParams();
 
   useEffect(() => {
-    setIsLoading(true);
-
     const getReviews = async () => {
       try {
         Api.fetchReviews(movieId).then(setReview);
+        setIsLoading(true);
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -26,8 +27,6 @@ export const Reviews = () => {
       isFirstRender.current = false;
       return;
     }
-
-    setIsLoading(false);
   }, [movieId]);
 
   // console.log(reviews);
