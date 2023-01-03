@@ -2,13 +2,13 @@ import { useState, useEffect, useRef } from 'react';
 import Api from '../Services/apiFetcher';
 import { Loader } from 'components/Loader/Loader';
 import { MoviesCardList } from '../components/MoviesCardList/MoviesCardList';
-import { Link, useLocation } from 'react-router-dom';
+// import { Link, useLocation } from 'react-router-dom';
 
 export const Home = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const isFirstRender = useRef(true);
-  const location = useLocation();
+  // const location = useLocation();
 
   useEffect(() => {
     async function getMovies() {

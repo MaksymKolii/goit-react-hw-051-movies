@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useSearchParams, useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 import Api from '../Services/apiFetcher';
 import { SearchForm } from 'components/Form/Form';
@@ -15,7 +15,7 @@ export const Movies = () => {
   const [pageP, setPage] = useState(1);
   const [isLoading, setIsloading] = useState(false);
   const [showLoadMore, setShowLoadMore] = useState(false);
-  const location = useLocation();
+  // const location = useLocation();
 
   useEffect(() => {
     if (!queryP) {
