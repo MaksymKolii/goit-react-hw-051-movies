@@ -12,9 +12,9 @@ export const Reviews = () => {
 
   useEffect(() => {
     const getReviews = async () => {
+      setIsLoading(true);
       try {
         Api.fetchReviews(movieId).then(setReview);
-        setIsLoading(true);
       } catch (error) {
         console.log(error);
       } finally {
@@ -29,11 +29,12 @@ export const Reviews = () => {
     }
   }, [movieId]);
 
-  // console.log(reviews);
+  console.log(reviews.length);
 
   return (
     <>
       {isLoading && <Loader />}
+
       {reviews.length === 0 && !isLoading ? (
         <p> We don't have any reviews</p>
       ) : (

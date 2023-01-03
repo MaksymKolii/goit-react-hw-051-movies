@@ -6,7 +6,6 @@ import {
   CastListP,
   CastListSpan,
 } from 'components/CastList/CastList.styled';
-import { Loader } from 'components/Loader/Loader';
 
 export const CastList = ({ cast }) => {
   const genderSwitcher = data => {
@@ -44,5 +43,12 @@ export const CastList = ({ cast }) => {
 };
 
 CastList.propTypes = {
-  cast: PropTypes.array.isRequired,
+  cast: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      cast_id: PropTypes.number.isRequired,
+      profile_path: PropTypes.string,
+      gender: PropTypes.number,
+    })
+  ).isRequired,
 };
