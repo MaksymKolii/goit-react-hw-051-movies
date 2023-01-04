@@ -17,7 +17,7 @@ export const ReviewList = ({ reviews }) => {
   return (
     <ReviewsUl>
       {reviews &&
-        reviews.map(({ author, content, updated_at, id }) => {
+        reviews.map(({ author, content, updated, id }) => {
           return (
             <ReviewsLi key={id}>
               <ReviewsH4>
@@ -25,8 +25,7 @@ export const ReviewList = ({ reviews }) => {
               </ReviewsH4>
               <ReviewsP>{content}</ReviewsP>
               <ReviewsH5>
-                Last update:{' '}
-                <ReviewsSpan>{timeReduser(updated_at)}</ReviewsSpan>
+                Last update: <ReviewsSpan>{timeReduser(updated)}</ReviewsSpan>
               </ReviewsH5>
             </ReviewsLi>
           );

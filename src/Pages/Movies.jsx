@@ -7,6 +7,8 @@ import { Button } from 'components/ButtonLoadMore/Button';
 import { Loader } from 'components/Loader/Loader';
 import { MoviesCardList } from '../components/MoviesCardList/MoviesCardList';
 
+import { transformMoviesDataArray } from 'helpers';
+
 export const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -36,10 +38,10 @@ export const Movies = () => {
         }
         setShowLoadMore(pageP < array.total_pages);
 
-        console.log(array);
-        console.log(array.total_pages);
-
-        setMovies(prevMovies => [...prevMovies, ...array.results]);
+        setMovies(prevMovies => [
+          ...prevMovies,
+          ...transformMoviesDataArray(array.results),
+        ]);
       } catch (error) {
         console.log(error);
       } finally {

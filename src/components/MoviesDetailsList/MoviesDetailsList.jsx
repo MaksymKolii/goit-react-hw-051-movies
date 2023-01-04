@@ -27,7 +27,6 @@ export const MovieDetailsList = ({ movieInfo }) => {
     poster_path,
     vote_average,
     overview,
-    // tagline,
     id,
   } = movieInfo;
 
@@ -42,6 +41,7 @@ export const MovieDetailsList = ({ movieInfo }) => {
       ? arrVideos.find(video => video.type === 'Trailer').key
       : arrVideos[0].key;
   };
+
   return (
     release_date && (
       <>
@@ -73,8 +73,6 @@ export const MovieDetailsList = ({ movieInfo }) => {
               Overview: <Span>{overview}</Span>
             </TitleH3>
 
-            {/* <TitleH3>Tagline: </TitleH3> */}
-            {/* <TextP>{tagline}</TextP> */}
             <TitleH3>
               User score: <Span>{normalizeVotes(vote_average)}</Span>
             </TitleH3>

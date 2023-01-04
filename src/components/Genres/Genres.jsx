@@ -6,6 +6,7 @@ export const Genres = ({ genreArray }) => {
     if (data === null) return;
     return data.map(gen => gen.name).join(', ');
   };
+
   return (
     <>
       <TitleH3>Genres: {<Span>{`${commaGenres(genreArray)}`}</Span>}</TitleH3>

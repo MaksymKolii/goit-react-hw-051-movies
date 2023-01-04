@@ -15,16 +15,7 @@ export const Home = () => {
       setIsLoading(true);
       try {
         const array = await Api.fetchMostPopular();
-        const partFromDataWhatWeNeed = array.map(
-          ({ release_date, title, poster_path, id }) => ({
-            release_date,
-            title,
-            poster_path,
-            id,
-          })
-        );
-        setMovies(partFromDataWhatWeNeed);
-        console.log(partFromDataWhatWeNeed);
+        setMovies(array);
       } catch (error) {
         console.log(error);
       } finally {

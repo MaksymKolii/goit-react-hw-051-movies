@@ -10,8 +10,6 @@ import {
 
 export const MovieCard = ({ release, title, poster, id }) => {
   const location = useLocation();
-  const year = new Date(release).getFullYear();
-  console.log(typeof year);
 
   return (
     <CardLink to={`/movies/${id}`} state={{ from: location }}>

@@ -4,13 +4,13 @@ export const MoviesCardList = ({ movies }) => {
   return (
     <List>
       {movies &&
-        movies.map(({ release_date, title, poster_path, id }) => (
+        movies.map(({ release, title, poster, id }) => (
           <Card key={id}>
             <MovieCard
               id={id}
-              release={release_date}
+              release={release}
               title={title}
-              poster={poster_path}
+              poster={poster}
             />
           </Card>
         ))}

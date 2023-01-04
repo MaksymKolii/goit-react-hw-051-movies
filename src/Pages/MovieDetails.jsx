@@ -16,9 +16,7 @@ export const MovieDetails = () => {
       setIsLoading(true);
       try {
         const res = await Api.fetchMovieById(movieId);
-
         setMovie(res);
-        console.log(res);
       } catch (error) {
         console.log(error);
       } finally {
