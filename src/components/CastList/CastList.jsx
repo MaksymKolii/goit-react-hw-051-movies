@@ -22,12 +22,12 @@ export const CastList = ({ cast }) => {
   return (
     <CastListUL>
       {cast &&
-        cast.map(({ cast_id, name, gender, profile_path }) => (
-          <CastListLI key={cast_id}>
+        cast.map(({ id, name, gender, profile }) => (
+          <CastListLI key={id}>
             <CastListImg
               src={
-                profile_path
-                  ? 'https://image.tmdb.org/t/p/w500' + profile_path
+                profile
+                  ? 'https://image.tmdb.org/t/p/w500' + profile
                   : 'https://louisville.edu/history/images/noimage.jpg/image'
               }
               alt={name}
@@ -46,8 +46,8 @@ CastList.propTypes = {
   cast: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      cast_id: PropTypes.number.isRequired,
-      profile_path: PropTypes.string,
+      id: PropTypes.number.isRequired,
+      profile: PropTypes.string,
       gender: PropTypes.number,
     })
   ).isRequired,

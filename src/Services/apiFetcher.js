@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { transformCastData } from 'helpers';
+
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
 const searchParams = new URLSearchParams({
@@ -38,9 +40,14 @@ async function fetchActors(movieId) {
   // 'https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US';
   const search = `/movie/${movieId}/credits?${searchParams}`;
 
-  const response = await axios(search);
-
-  return response.data.cast;
+  // const response = await axios(search);
+  // console.log(response.data);
+  // return response.data.cast;
+  const { data } = await axios(search);
+  console.log(data);
+  const cast = transformCastData(data.cast);
+  console.log(cast);
+  return cast;
 }
 
 async function fetchReviews(movieId) {
