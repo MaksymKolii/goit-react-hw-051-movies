@@ -5,7 +5,7 @@ import { Loader } from 'components/Loader/Loader';
 import { ButtonGoBack } from 'components/ButtonGoBack/ButtonGoBack';
 import { useParams } from 'react-router-dom';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const { movieId } = useParams();
   const isFirstRender = useRef(true);
@@ -42,3 +42,5 @@ export const MovieDetails = () => {
     )
   );
 };
+
+export default MovieDetails;

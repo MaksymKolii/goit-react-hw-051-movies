@@ -4,7 +4,7 @@ import { Loader } from 'components/Loader/Loader';
 import { MoviesCardList } from '../components/MoviesCardList/MoviesCardList';
 // import { Link, useLocation } from 'react-router-dom';
 
-export const Home = () => {
+const Home = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const isFirstRender = useRef(true);
@@ -38,3 +38,4 @@ export const Home = () => {
     )
   );
 };
+export default Home;

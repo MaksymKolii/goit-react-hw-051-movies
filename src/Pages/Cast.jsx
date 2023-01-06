@@ -4,7 +4,7 @@ import Api from '../Services/apiFetcher';
 import { CastList } from 'components/CastList/CastList';
 import { Loader } from '../components/Loader/Loader';
 
-export const Cast = () => {
+const Cast = () => {
   const [cast, setCast] = useState([]);
   const isFirstRender = useRef(true);
   const [isLoading, setIsLoading] = useState(false);
@@ -43,3 +43,5 @@ export const Cast = () => {
     </>
   );
 };
+
+export default Cast;

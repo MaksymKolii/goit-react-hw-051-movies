@@ -1,11 +1,17 @@
 import { Routes, Route } from 'react-router-dom';
-import { Home } from '../Pages/Home';
-import { Movies } from '../Pages/Movies';
+import { lazy } from 'react';
 import { Layout } from './Layout/Layout';
-import { MovieDetails } from '../Pages/MovieDetails';
-import { Cast } from '../Pages/Cast';
-import { Reviews } from '../Pages/Reviews';
+
 import { GlobalStyles } from '../utils/GlobalStyles';
+const Home = lazy(() =>
+  import('../Pages/Home')
+); /* webpackChunkName: "home-view" */
+const Movies = lazy(() =>
+  import('../Pages/Movies')
+); /* webpackChunkName: "movies-view" */
+const MovieDetails = lazy(() => import('../Pages/MovieDetails'));
+const Cast = lazy(() => import('../Pages/Cast'));
+const Reviews = lazy(() => import('../Pages/Reviews'));
 
 export const App = () => {
   return (

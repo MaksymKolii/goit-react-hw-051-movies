@@ -9,7 +9,7 @@ import { MoviesCardList } from '../components/MoviesCardList/MoviesCardList';
 
 import { transformMoviesDataArray } from 'helpers';
 
-export const Movies = () => {
+const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const queryP = searchParams.get('moviename');
@@ -80,3 +80,4 @@ export const Movies = () => {
     </>
   );
 };
+export default Movies;

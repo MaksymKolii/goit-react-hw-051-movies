@@ -4,7 +4,7 @@ import Api from '../Services/apiFetcher';
 import { ReviewList } from 'components/Review/ReviewList';
 import { Loader } from 'components/Loader/Loader';
 
-export const Reviews = () => {
+const Reviews = () => {
   const [reviews, setReview] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const isFirstRender = useRef(true);
@@ -43,3 +43,5 @@ export const Reviews = () => {
     </>
   );
 };
+
+export default Reviews;
