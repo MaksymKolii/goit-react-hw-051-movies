@@ -1,4 +1,4 @@
-import { makeSlug } from 'helpers';
+import { setSlug } from 'helpers';
 import { useLocation } from 'react-router-dom';
 import {
   CardLink,
@@ -15,7 +15,7 @@ export const MovieCard = ({ release, title, poster, id }) => {
   return (
     // <CardLink to={`/movies/${id}`} state={{ from: location }}>
     <CardLink
-      to={`/movies/${makeSlug(`${title} ${id}`)}`}
+      to={`/movies/${setSlug(`${title} ${id}`)}`}
       state={{ from: location }}
     >
       <Image

@@ -3,18 +3,20 @@ import { useState, useEffect, useRef } from 'react';
 import Api from '../Services/apiFetcher';
 import { CastList } from 'components/CastList/CastList';
 import { Loader } from '../components/Loader/Loader';
+import { getSlug } from 'helpers';
 
 const Cast = () => {
   const [cast, setCast] = useState([]);
   const isFirstRender = useRef(true);
   const [isLoading, setIsLoading] = useState(false);
   const { slug } = useParams();
+  const movieId = getSlug(slug);
 
   useEffect(() => {
     async function getActors() {
       setIsLoading(true);
       try {
-        const res = await Api.fetchActors(slug);
+        const res = await Api.fetchActors(movieId);
 
         setCast(res);
       } catch (error) {
@@ -29,7 +31,7 @@ const Cast = () => {
       isFirstRender.current = false;
       return;
     }
-  }, [slug]);
+  }, [movieId]);
 
   return (
     <>

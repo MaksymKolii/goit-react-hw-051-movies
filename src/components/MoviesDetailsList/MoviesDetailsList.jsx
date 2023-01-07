@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import { Genres } from 'components/Genres/Genres';
 import { Loader } from 'components/Loader/Loader';
 import { Outlet, useLocation } from 'react-router-dom';
+import { setSlug } from 'helpers';
 import {
   Title,
   Image,
@@ -91,10 +92,16 @@ export const MovieDetailsList = ({ movieInfo }) => {
 
         <TitleH4>Additional information</TitleH4>
         <DivWrap>
-          <AddInfoLink to={`/movies/${id}/cast`} state={location.state}>
+          <AddInfoLink
+            to={`/movies/${setSlug(`${title} ${id}`)}/cast`}
+            state={location.state}
+          >
             Cast
           </AddInfoLink>
-          <AddInfoLink to={`/movies/${id}/reviews`} state={location.state}>
+          <AddInfoLink
+            to={`/movies/${setSlug(`${title} ${id}`)}/reviews`}
+            state={location.state}
+          >
             Reviews
           </AddInfoLink>
         </DivWrap>

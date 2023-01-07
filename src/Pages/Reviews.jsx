@@ -3,18 +3,20 @@ import { useState, useEffect, useRef } from 'react';
 import Api from '../Services/apiFetcher';
 import { ReviewList } from 'components/Review/ReviewList';
 import { Loader } from 'components/Loader/Loader';
+import { getSlug } from 'helpers';
 
 const Reviews = () => {
   const [reviews, setReview] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const isFirstRender = useRef(true);
   const { slug } = useParams();
+  const movieId = getSlug(slug);
 
   useEffect(() => {
     const getReviews = async () => {
       setIsLoading(true);
       try {
-        Api.fetchReviews(slug).then(setReview);
+        Api.fetchReviews(movieId).then(setReview);
       } catch (error) {
         console.log(error);
       } finally {
@@ -27,7 +29,7 @@ const Reviews = () => {
       isFirstRender.current = false;
       return;
     }
-  }, [slug]);
+  }, [movieId]);
 
   console.log(reviews.length);
 
