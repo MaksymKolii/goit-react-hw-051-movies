@@ -1,3 +1,4 @@
+import slugify from 'slugify';
 import { useLocation } from 'react-router-dom';
 import {
   CardLink,
@@ -8,11 +9,17 @@ import {
   Span,
 } from './MovieCard.styled';
 
+const makeSlug = string => slugify(string, { lower: true });
+
 export const MovieCard = ({ release, title, poster, id }) => {
   const location = useLocation();
 
   return (
-    <CardLink to={`/movies/${id}`} state={{ from: location }}>
+    // <CardLink to={`/movies/${id}`} state={{ from: location }}>
+    <CardLink
+      to={`/movies/${makeSlug(`${title} ${id}`)}`}
+      state={{ from: location }}
+    >
       <Image
         src={
           poster
@@ -25,6 +32,7 @@ export const MovieCard = ({ release, title, poster, id }) => {
       />
       <CardBottom>
         <CardTitle>{title}</CardTitle>
+        {/* <CardTitle>{makeSlug(`${title} ${id}`)}</CardTitle> */}
         <H4>
           Release date: <Span>{release}</Span>
         </H4>

@@ -8,13 +8,13 @@ const Cast = () => {
   const [cast, setCast] = useState([]);
   const isFirstRender = useRef(true);
   const [isLoading, setIsLoading] = useState(false);
-  const { movieId } = useParams();
+  const { slug } = useParams();
 
   useEffect(() => {
     async function getActors() {
       setIsLoading(true);
       try {
-        const res = await Api.fetchActors(movieId);
+        const res = await Api.fetchActors(slug);
 
         setCast(res);
       } catch (error) {
@@ -29,7 +29,7 @@ const Cast = () => {
       isFirstRender.current = false;
       return;
     }
-  }, [movieId]);
+  }, [slug]);
 
   return (
     <>

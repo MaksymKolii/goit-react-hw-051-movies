@@ -8,13 +8,13 @@ const Reviews = () => {
   const [reviews, setReview] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const isFirstRender = useRef(true);
-  const { movieId } = useParams();
+  const { slug } = useParams();
 
   useEffect(() => {
     const getReviews = async () => {
       setIsLoading(true);
       try {
-        Api.fetchReviews(movieId).then(setReview);
+        Api.fetchReviews(slug).then(setReview);
       } catch (error) {
         console.log(error);
       } finally {
@@ -27,7 +27,7 @@ const Reviews = () => {
       isFirstRender.current = false;
       return;
     }
-  }, [movieId]);
+  }, [slug]);
 
   console.log(reviews.length);
 

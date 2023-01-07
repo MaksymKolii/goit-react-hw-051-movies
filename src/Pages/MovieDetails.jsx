@@ -4,12 +4,17 @@ import { MovieDetailsList } from '../components/MoviesDetailsList/MoviesDetailsL
 import { Loader } from 'components/Loader/Loader';
 import { ButtonGoBack } from 'components/ButtonGoBack/ButtonGoBack';
 import { useParams } from 'react-router-dom';
+// import slugify from 'slugify';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
-  const { movieId } = useParams();
+  // const { movieId } = useParams();
+  const { slug } = useParams();
+  const movieId = slug.match(/[0-9a-zA-Z]+$/)[0];
   const isFirstRender = useRef(true);
   const [isLoading, setIsLoading] = useState(false);
+
+  // console.log(slug.match(/[0-9a-zA-Z]+$/)[0]);
 
   useEffect(() => {
     async function getMovie() {
