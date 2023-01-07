@@ -1,4 +1,4 @@
-import slugify from 'slugify';
+import { makeSlug } from 'helpers';
 import { useLocation } from 'react-router-dom';
 import {
   CardLink,
@@ -8,8 +8,6 @@ import {
   H4,
   Span,
 } from './MovieCard.styled';
-
-const makeSlug = string => slugify(string, { lower: true });
 
 export const MovieCard = ({ release, title, poster, id }) => {
   const location = useLocation();
