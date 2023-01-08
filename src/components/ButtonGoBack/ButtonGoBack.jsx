@@ -6,6 +6,7 @@ import { GoBackButton } from './ButtonGoBack.styled';
 export const ButtonGoBack = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  console.log('ButtonGoBack Location', location);
 
   return (
     <GoBackButton

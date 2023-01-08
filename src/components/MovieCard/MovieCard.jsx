@@ -11,6 +11,7 @@ import {
 
 export const MovieCard = ({ release, title, poster, id }) => {
   const location = useLocation();
+  // console.log('MovieCard Location', location);
 
   return (
     // <CardLink to={`/movies/${id}`} state={{ from: location }}>

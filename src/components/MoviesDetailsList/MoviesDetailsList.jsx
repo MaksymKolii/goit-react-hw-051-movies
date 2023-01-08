@@ -20,6 +20,7 @@ import PropTypes from 'prop-types';
 
 export const MovieDetailsList = ({ movieInfo }) => {
   const location = useLocation();
+  console.log('MovieDetailsList Location', location);
   const {
     release_date,
     genres,
