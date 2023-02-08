@@ -12,7 +12,8 @@ export const ReviewList = ({ reviews }) => {
   const timeReduser = data => {
     const year = data.slice(0, 10);
     const time = data.slice(11, 19);
-    return year + ' ' + time;
+    // return year + ' ' + time;
+    return data.slice(0, 10) + data.slice(11, 19)
   };
   return (
     <ReviewsUl>
